@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  redis-instance:
+    image: redis:7.0
+    ports:
+      - "6379:6379"
+
+  buildfarm-server:
+    build:
+      context: ./docker/buildfarm/server
+      dockerfile: Dockerfile
+    depends_on:
+      - redis-instance
+    ports:
+      - "8980:8980"
+
+  buildfarm-worker:
+    build:
+      context: ./docker/buildfarm/worker
+      dockerfile: Dockerfile
+    depends_on:
+      - buildfarm-server
+    ports:
+      - "8981:8981"

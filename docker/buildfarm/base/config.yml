@@ -1,0 +1,17 @@
+backplane:
+  redisUri: "redis://redis-instance:6379"
+  queues:
+    - name: "cpu"
+      properties:
+        - name: "min-cores"
+          value: "*"
+        - name: "max-cores"
+          value: "*"
+server:
+  port: 8980
+  publicName: "buildfarm-server:8980"
+  ensureOutputsPresent: true
+  useDenyList: false
+worker:
+  publicName: "buildfarm-worker:8981"
+  port: 8981

@@ -1,0 +1,11 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_binary(
+    name = "grpc_buildfarm_issue",
+    srcs = [
+        "main.cpp",
+    ],
+    deps = [
+        "@com_github_grpc_grpc//:grpc++",
+    ],
+)
