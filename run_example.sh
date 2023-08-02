@@ -32,6 +32,7 @@ docker-compose up -d
 
 # build our code inside the container, but use buildfarm this time. THIS SHOULD FAIL.
 echo "Now we will use buildfarm for the same process. This will fail."
+# do not use localhost! this is for the build docker container to reach buildfarm; localhost would not be routed outside the build container
 MY_LOCAL_IP=10.0.0.136
 echo "PLEASE ADAPT SCRIPT TO USE THE LOCAL IP OF YOUR MACHINE, CURRENTLY SET TO $MY_LOCAL_IP"
 echo "press any key to continue..."
